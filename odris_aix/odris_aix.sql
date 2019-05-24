@@ -717,7 +717,7 @@ PROMPT
 PROMPT =============================
 PROMPT # 6.1 Access by App Servers #
 PROMPT =============================
---SELECT SYS_CONTEXT ('userenv', 'host') AS host FROM dual/
+--SELECT SYS_CONTEXT ('userenv', 'host') AS host FROM dual;
 --cat $ORACLE_BASE/diag/tnslsnr/ysyktest/listener/alert/log.xml | grep "<txt>"
 --HOST lsnrctl status | grep "Listener Log File" | awk -F' ' '{print $4}'
 --cat /u01/app/oracle/diag/tnslsnr/ysyktest/listener/alert/log.xml | awk -F'=' '{print $14}' | cut -d')' -f1 | sort -nr | uniq
