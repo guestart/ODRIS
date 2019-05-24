@@ -24,7 +24,7 @@ SELECT '[03] RDBMS Version: '
 FROM v$instance
 /
 --PROMPT [04] Is or not Oracle RAC ?
---show parameter cluster_database/
+--show parameter cluster_database;
 --COLUMN parameter FORMAT a30
 --COLUMN value FORMAT a8
 SELECT '[04] Is or not Oracle RAC ? '
@@ -40,7 +40,7 @@ PROMPT [05] CRS Version: None
 --PROMPT
 --else
 --  PROMPT Please input grid user's password.
---  crsctl query crs softwareversion/
+--  crsctl query crs softwareversion
 --  exit
 --fi
 -- PROMPT [06] All of data files occupying disk space:
@@ -113,7 +113,8 @@ FROM gv$log
 PROMPT
 SET heading ON
 PROMPT [16] The numbers of members of every group of logfile:
-SELECT group#, members FROM v$log/
+SELECT group#, members FROM v$log
+/
 PROMPT
 PROMPT [17] Is or not Archivelog Mode ?
 PROMPT
