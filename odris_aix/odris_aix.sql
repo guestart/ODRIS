@@ -41,7 +41,7 @@ SELECT '[03] RDBMS Version: '
 FROM v$instance
 /
 --PROMPT [04] Is or not Oracle RAC ?
---show parameter cluster_database/
+--show parameter cluster_database;
 --COLUMN parameter FORMAT a30
 --COLUMN value FORMAT a8
 SELECT '[04] Is or not Oracle RAC ? '
