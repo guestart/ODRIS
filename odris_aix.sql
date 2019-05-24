@@ -1,7 +1,8 @@
 REM
 REM    Script: odris_aix.sql
 REM    Author: Quanwen Zhao
-REM    Updated: May 18, 2019
+REM    Dated: May 18, 2019
+REM    Updated: May 24, 2019
 REM
 REM    Purpose:
 REM      This sql script "odris" (the first letter abbreviation of oracle database routine inspection script)
@@ -56,7 +57,7 @@ PROMPT [05] CRS Version: None
 --PROMPT
 --else
 --  PROMPT Please input grid user's password.
---  crsctl query crs softwareversion/
+--  crsctl query crs softwareversion
 --  exit
 --fi
 -- PROMPT [06] All of data files occupying disk space:
@@ -129,7 +130,8 @@ FROM gv$log
 PROMPT
 SET heading ON
 PROMPT [16] The numbers of members of every group of logfile:
-SELECT group#, members FROM v$log/
+SELECT group#, members FROM v$log
+/
 PROMPT
 PROMPT [17] Is or not Archivelog Mode ?
 PROMPT
@@ -260,7 +262,7 @@ HOST $ORACLE_HOME/OPatch/opatch lsinventory
 --PROMPT =========================
 --PROMPT # 4.4 ASM configuration #
 --PROMPT =========================
---show parameter pfile
+--SHOW PARAMETER pfile
 --CREATE pfile='/tmp/pfile.asm' FROM spfile;
 --HOST cat /tmp/pfile.asm
 --PROMPT
@@ -344,12 +346,12 @@ PROMPT =======================
 --I only check log.xml, which is the latest time to update, afterwards it has been cutting and rotating.
 --HOST tail -35 /u01/app/oracle/diag/rdbms/orcl/orcl1/alert/log.xml
 --declare
---  db_name varchar2(30)/
---  ins_name varchar2(30)/
+--  db_name varchar2(30);
+--  ins_name varchar2(30);
 --begin
---	SELECT value into db_name FROM v$parameter WHERE name = 'db_name'/
---  SELECT WM_CONCAT(instance_name) into ins_name FROM v$instance/
---end/
+--  SELECT value into db_name FROM v$parameter WHERE name = 'db_name';
+--  SELECT WM_CONCAT(instance_name) into ins_name FROM v$instance;
+--end;
 --/
 --HOST tail -35 $ORACLE_BASE/diag/rdbms/$db_name/$ins_name/alert/log.xml
 COLUMN db_name NEW_VALUE db_name NOPRINT
@@ -652,7 +654,8 @@ COLUMN username FORMAT a8
 COLUMN sysdba FORMAT a6
 COLUMN sysoper FORMAT a7
 COLUMN sysasm FORMAT a6
-SELECT * FROM v$pwfile_users/
+SELECT * FROM v$pwfile_users
+/
 --PROMPT
 COLUMN grantee FORMAT a25
 COLUMN granted_role FORMAT a12
@@ -714,7 +717,7 @@ PROMPT
 PROMPT =============================
 PROMPT # 6.1 Access by App Servers #
 PROMPT =============================
---SELECT SYS_CONTEXT ('userenv', 'host') AS host FROM dual/
+--SELECT SYS_CONTEXT ('userenv', 'host') AS host FROM dual;
 --cat $ORACLE_BASE/diag/tnslsnr/ysyktest/listener/alert/log.xml | grep "<txt>"
 --HOST lsnrctl status | grep "Listener Log File" | awk -F' ' '{print $4}'
 --cat /u01/app/oracle/diag/tnslsnr/ysyktest/listener/alert/log.xml | awk -F'=' '{print $14}' | cut -d')' -f1 | sort -nr | uniq
