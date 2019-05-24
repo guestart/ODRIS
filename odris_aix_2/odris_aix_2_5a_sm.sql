@@ -6,7 +6,8 @@ COLUMN username FORMAT a8
 COLUMN sysdba FORMAT a6
 COLUMN sysoper FORMAT a7
 COLUMN sysasm FORMAT a6
-SELECT * FROM v$pwfile_users/
+SELECT * FROM v$pwfile_users
+/
 --PROMPT
 COLUMN grantee FORMAT a25
 COLUMN granted_role FORMAT a12
