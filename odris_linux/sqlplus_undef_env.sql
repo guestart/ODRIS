@@ -1,0 +1,11 @@
+set serveroutput         off
+set long                 80
+set longchunksize        80
+set echo                 on
+set feedback             on
+--set termout              off
+set verify               on
+set heading              on
+set linesize             80
+set pagesize             14
+--set colsep               '|'
