@@ -1,7 +1,8 @@
 REM
 REM    Script: 
 REM    Author: Quanwen Zhao
-REM    Updated: May 19, 2019
+REM    Dated: May 18, 2019
+REM    Updated: May 25, 2019
 REM
 REM    Purpose:
 REM      This sql script "odris" (the first letter abbreviation of oracle database routine inspection script)
@@ -40,7 +41,7 @@ SELECT '[03] RDBMS Version: '
 FROM v$instance
 /
 --PROMPT [04] Is or not Oracle RAC ?
---show parameter cluster_database/
+--show parameter cluster_database;
 --COLUMN parameter FORMAT a30
 --COLUMN value FORMAT a8
 SELECT '[04] Is or not Oracle RAC ? '
@@ -129,7 +130,8 @@ FROM gv$log
 PROMPT
 SET heading ON
 PROMPT [16] The numbers of members of every group of logfile:
-SELECT group#, members FROM v$log/
+SELECT group#, members FROM v$log
+/
 PROMPT
 PROMPT [17] Is or not Archivelog Mode ?
 PROMPT
@@ -153,7 +155,7 @@ PROMPT =======================================
 PROMPT # 2.1 Server Host Configuration (SHC) #
 PROMPT =======================================
 PROMPT
-PROMPT [01]  Machine Name:
+PROMPT [01] Machine Name:
 PROMPT
 HOST hostname
 --PROMPT
@@ -328,7 +330,7 @@ HOST $ORACLE_HOME/OPatch/opatch lsinventory
 --FROM v$diag_info
 --WHERE name = 'Diag Trace'
 --/
--- such as, 1 Diag Trace    /u01/app/grid/diag/asm/+asm/+ASM1/trace
+--such as, 1 Diag Trace    /u01/app/grid/diag/asm/+asm/+ASM1/trace
 --HOST tail -20 /u01/app/grid/diag/asm/+asm/+ASM1/trace/alert_+ASM1.log
 --PROMPT
 PROMPT =======================
@@ -344,12 +346,12 @@ PROMPT =======================
 --I only check log.xml, which is the latest time to update, afterwards it has been cutting and rotating.
 --HOST tail -35 /u01/app/oracle/diag/rdbms/orcl/orcl1/alert/log.xml
 --declare
---  db_name varchar2(30)/
---  ins_name varchar2(30)/
+--  db_name varchar2(30);
+--  ins_name varchar2(30);
 --begin
---	SELECT value into db_name FROM v$parameter WHERE name = 'db_name'/
---  SELECT WM_CONCAT(instance_name) into ins_name FROM v$instance/
---end/
+--  SELECT value into db_name FROM v$parameter WHERE name = 'db_name';
+--  SELECT WM_CONCAT(instance_name) into ins_name FROM v$instance;
+--end;
 --/
 --HOST tail -35 $ORACLE_BASE/diag/rdbms/$db_name/$ins_name/alert/log.xml
 COLUMN db_name NEW_VALUE db_name NOPRINT
@@ -652,7 +654,8 @@ COLUMN username FORMAT a8
 COLUMN sysdba FORMAT a6
 COLUMN sysoper FORMAT a7
 COLUMN sysasm FORMAT a6
-SELECT * FROM v$pwfile_users/
+SELECT * FROM v$pwfile_users
+/
 --PROMPT
 COLUMN grantee FORMAT a25
 COLUMN granted_role FORMAT a12
