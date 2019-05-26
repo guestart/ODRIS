@@ -155,7 +155,7 @@ PROMPT =================================
 PROMPT # 2.1 Server Host Configuration #
 PROMPT =================================
 PROMPT
-PROMPT [01]  Machine Name:
+PROMPT [01] Machine Name:
 PROMPT
 HOST hostname
 --PROMPT
