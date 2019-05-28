@@ -7,11 +7,24 @@ PROMPT =============================
 PROMPT # 6.1 Access by App Servers #
 PROMPT =============================
 PROMPT
-PROMPT [01] Via calling bash shell script 'mining_listener_logxml_review_appserver_ip_2.sh'
-PROMPT to review the IP Address of App server.
+--COLUMN newline NEW_VALUE newline NOPRINT
+--SELECT chr(10) newline FROM dual;
+--PROMPT [01] Via calling bash shell script *mining_listener_logxml_review_appserver_ip_2.sh*&newline-
+--    to review the IP Address of App server.
+SET SERVEROUTPUT ON FORMAT WRAPPED
+BEGIN
+  DBMS_OUTPUT.PUT_LINE('[01] Via calling bash shell script *mining_listener_logxml_review_appserver_ip_2.sh*');
+  DBMS_OUTPUT.PUT_LINE('     to review the IP Address of App server.');
+END;
+/
 HOST sh ~/taiji/odris/script/mining_listener_logxml_review_appserver_ip_2.sh
-PROMPT [02] Another approach is creating trigger on SYS
-PROMPT and then checking the client_info column of v$session.
+--PROMPT [02] Another approach is creating trigger on SYS&newline-
+--    and then checking the client_info column of v$session.
+BEGIN
+  DBMS_OUTPUT.PUT_LINE('[02] Another approach is creating trigger on SYS');
+  DBMS_OUTPUT.PUT_LINE('     and then checking the client_info column of v$session.');
+END;
+/
 CREATE OR REPLACE TRIGGER on_logon_trigger
 AFTER LOGON ON DATABASE
 BEGIN
@@ -47,7 +60,7 @@ PROMPT ================================
 PROMPT # 6.2 Access by Business Users #
 PROMPT ================================
 --PROMPT
-COLUMN username FORMAT a25
+COLUMN username       FORMAT a25
 COLUMN account_status FORMAT a14
 SELECT username
        , account_status
