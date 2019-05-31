@@ -73,7 +73,7 @@ echo
 for n in $oracle_sid_names
 do
 export ORACLE_SID=$n;
-sqlplus -S / as sysdba <<EOF > /oracle/taiji/odris/report/odris_${n}_`date +%Y%m%d`.txt
+sqlplus -S / as sysdba <<EOF > ~/taiji/odris/report/odris_${n}_`date +%Y%m%d`.txt
 @sqlplus_def_env.sql
 alter session set nls_date_format = 'YYYY-MM-DD HH24:MI:SS';
 @odris_aix.sql
@@ -87,5 +87,5 @@ echo "# As you can see, all of Oracle Database Routine Inspection Reports have b
 echo "#                                                                                                           #"
 echo "============================================================================================================="
 echo
-ls -l /oracle/taiji/odris/report/*`date +%Y%m%d`.txt | awk '{print $9}'
+ls -l ~/taiji/odris/report/*`date +%Y%m%d`.txt | awk '{print $9}'
 echo
