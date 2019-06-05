@@ -17,7 +17,7 @@ BEGIN
   DBMS_OUTPUT.PUT_LINE('     to review the IP Address of App server.');
 END;
 /
-HOST sh ~/taiji/odris/script/mining_listener_logxml_review_appserver_ip_2.sh
+HOST sh ~/odris_linux/script/mining_listener_logxml_review_appserver_ip_2.sh
 --PROMPT [02] Another approach is creating trigger on SYS&newline-
 --    and then checking the client_info column of v$session.
 BEGIN
