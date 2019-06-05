@@ -57,7 +57,7 @@ cd ${loc_listener_log}
 
 file_listener_log_lst=`ls -lth * | awk -F' ' '{print $NF}'`
 
-> ~/taiji/odris/report/mining_all_logxml_appserver_ip_`date +%Y%m%d`.lst
+> ~/odris_linux/report/mining_all_logxml_appserver_ip_`date +%Y%m%d`.lst
 
 echo
 echo "========================================================================================"
@@ -75,7 +75,7 @@ echo
 
 for i in ${file_listener_log_lst}
 do
-  cat $i | grep "HOST=" | grep establish | awk -F'=' '{print $(NF-1)}' | cut -d')' -f1 | sort -n | uniq >> ~/taiji/odris/report/mining_all_logxml_appserver_ip_`date +%Y%m%d`.lst
+  cat $i | grep "HOST=" | grep establish | awk -F'=' '{print $(NF-1)}' | cut -d')' -f1 | sort -n | uniq >> ~/odris_linux/report/mining_all_logxml_appserver_ip_`date +%Y%m%d`.lst
 done
 
 # +-----------------------------------------------------------------------+
@@ -90,7 +90,7 @@ done
 # |                                                                       |
 # +-----------------------------------------------------------------------+
 
-cat ~/taiji/odris/report/mining_all_logxml_appserver_ip_`date +%Y%m%d`.lst | grep -E  "([0-9]{1,3}\.){3}[0-9]{1,3}" | sort -n | uniq >  ~/taiji/odris/report/appserver_ip_`date +%Y%m%d`.lst
+cat ~/odris_linux/report/mining_all_logxml_appserver_ip_`date +%Y%m%d`.lst | grep -E  "([0-9]{1,3}\.){3}[0-9]{1,3}" | sort -n | uniq >  ~/odris_linux/report/appserver_ip_`date +%Y%m%d`.lst
 
 echo "============================================================================================"
 echo "#                                                                                          #"
@@ -98,7 +98,7 @@ echo "# As you can see, the previous mentioned two files have been listed by fol
 echo "#                                                                                          #"
 echo "============================================================================================"
 echo
-ls -lrth ~/taiji/odris/report/*`date +%Y%m%d`.lst | awk '{print $NF}'
+ls -lrth ~/odris_linux/report/*`date +%Y%m%d`.lst | awk '{print $NF}'
 echo
 echo 'End time: '$(${DATE_TIME} '+%Y-%m-%d %H:%M:%S')
 echo
