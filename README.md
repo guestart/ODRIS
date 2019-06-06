@@ -181,7 +181,8 @@
 ```bash
 [oracle@test script]$ pwd
 /home/oracle/odris_linux/script
-
+```
+```sql
 [oracle@test script]$ ./odris_linux.sh 
 ========================
 #                      #
