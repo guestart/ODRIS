@@ -212,9 +212,9 @@ Begin time: 2019-06-06 14:37:48
 #                                                                                                           #
 =============================================================================================================
 
-/home/oracle/odris_linux/report/odris_test1_20190605.txt
-/home/oracle/odris_linux/report/odris_test2_20190605.txt
-/home/oracle/odris_linux/report/odris_test3_20190605.txt
+/home/oracle/odris_linux/report/odris_test1_20190606.txt
+/home/oracle/odris_linux/report/odris_test2_20190606.txt
+/home/oracle/odris_linux/report/odris_test3_20190606.txt
 
 End time: 2019-06-06 14:38:02
 ```
