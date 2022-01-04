@@ -4,7 +4,7 @@
 
 `ODRIS` is the first letter abbreviation of **O**racle **D**atabase **R**outine **I**nspection **S**cript (including `Oracle SQL` and `Unix Ksh/Linux Bash`), which can be easily deployed to customer/client's Oracle Database Server (Attention: It'll not change/modify their oracle environment just only check oracle dynamic performance view by several SQL select statements), then run it to generate specific report with TXT format quickly. Regardless of how many instances **(although rarely more than one instance)** there're on their db server, you use **ODRIS** to always generate a corresponding number of reports.
 
-### 2. Version introduce
+### 2. Version introduction
 
 - `AIX` platform
   - [odris_aix](https://github.com/guestart/ODRIS/tree/master/odris_aix) : the first version on AIX
